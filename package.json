@@ -1,0 +1,16 @@
+{
+  "name": "arry-compare-benchmark",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "nodejs-array-different": "^1.1.0"
+  }
+}
