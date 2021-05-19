@@ -23,5 +23,3 @@ console.timeEnd('compareArrays')
 console.time('compareArrays1')
 compareArrays1(array0, array1)
 console.timeEnd('compareArrays1')
-
-
