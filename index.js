@@ -1,5 +1,5 @@
 const get_differences_from_arrays = require('nodejs-array-different')
-const { compareArrays, compareArrays1 } = require('./compareArrays')
+const { compareArrays, compareArrays1, compareArrays2, compareArrays3 } = require('./compareArrays')
 
 const ARRAY_LENGTH = 10000
 
@@ -49,6 +49,20 @@ console.log(res.just_in_b.length);
 console.time('compareArrays1')
 res = compareArrays1(array0, array1)
 console.timeEnd('compareArrays1')
+console.log(res.inside_ab.length);
+console.log(res.just_in_a.length);
+console.log(res.just_in_b.length);
+
+console.time('compareArrays2')
+res = compareArrays2(array0, array1)
+console.timeEnd('compareArrays2')
+console.log(res.inside_ab.length);
+console.log(res.just_in_a.length);
+console.log(res.just_in_b.length);
+
+console.time('compareArrays3')
+res = compareArrays3(array0, array1)
+console.timeEnd('compareArrays3')
 console.log(res.inside_ab.length);
 console.log(res.just_in_a.length);
 console.log(res.just_in_b.length);
