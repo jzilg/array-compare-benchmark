@@ -1,4 +1,4 @@
-const { difference } = require('lodash')
+const { difference, intersection } = require('lodash')
 
 // not as fast as get_differences_from_arrays but just build with lodash
 const compareArrays = (array0, array1) => {
@@ -57,7 +57,40 @@ const compareArrays1 = (array0, array1) => {
     }
 }
 
+const compareArrays2 = (array0, array1) => {
+    const inside_ab = intersection(array0, array1)
+    const just_in_a = difference(array0, inside_ab)
+    const just_in_b = difference(array1, inside_ab)
+
+    return {
+        just_in_a,
+        just_in_b,
+        inside_ab,
+    }
+}
+
+function compareArrays3(a, b){
+  const seta = new Set(a);
+  const setb = new Set(b);
+  let inside_ab;
+  if (b.length < a.length){
+    inside_ab = a.filter(x => setb.has(x));
+  } else {
+    inside_ab = b.filter(x => seta.has(x));
+  }
+  const just_in_a = a.filter(x => !setb.has(x));
+  const just_in_b = b.filter(x => !seta.has(x));
+
+  return {
+    just_in_a,
+    just_in_b,
+    inside_ab
+  }
+}
+
 module.exports = {
     compareArrays,
     compareArrays1,
+    compareArrays2,
+    compareArrays3,
 }
